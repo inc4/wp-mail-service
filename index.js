@@ -1,9 +1,10 @@
 require('dotenv').config();
 const express = require("express");
 const cors = require('cors');
-const app = express();
 const bodyParser = require("body-parser");
 const axios = require('axios');
+
+const app = express();
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -19,7 +20,7 @@ const corsOptions = {
 const HTTP_PORT = 3000;
 
 app.get("/health", (req, res, next) => res.send({status: "Ok!"}));
-app.post("/send", cors(corsOptions), (req, res, next) => {
+app.post("/subscribe", cors(corsOptions), (req, res, next) => {
   const list_ids = [];
   const errors=[];
 
